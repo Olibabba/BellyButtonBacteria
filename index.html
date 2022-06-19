@@ -11,32 +11,67 @@
   <!-- updated d3 link. link in module was BAAAAD -->
   <script src="https://d3js.org/d3.v7.min.js"></script>  
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    .jumbotron {
+      background-image: url("static/images/bacteria.png");
+      background-size: cover;
+      padding-top: 50px;
+      padding-bottom: 50px 
+    }
+  </style>
 
 </head>
 
 <body>
 
   <div class="container">
-    <div class="row">
+    <div class="row" style="margin-bottom: 15px">
       <div class="col-md-12 jumbotron text-center">
         <h1>Bad Ass Belly Button Biodiversity Dashboard</h1>
         <p>Use the interactive charts below to explore the dataset</p>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4">
+    <div class="row justify-content-center" style="margin-bottom: 15px";>      
+      <div class="col-md text-center" >
+          <h2 class="text-warning">"The coolest study of biodiversity on the human body on the planet!"</h2>
+          <p class="text-warning">In January 2011, The Public Science Lab, from the Department of Applied Ecology in North Carolina State University, launched Belly Button Biodiversity to investigate the microbes inhabiting our navels and the factors that might influence the microscopic life calling this protected, moist patch of skin home.
+          </p>
+          <p class="text-warning">Hundreds of eager navel-gazers participated in the study, donating samples at in-person events, though in response to popular demand, they later opened up their study to people all over North America. They were overwhelmed by the response however, and stopped collecting samples in 2012.
+          </p>
+          <p class="text-warning">The lab then plated each individual’s sample and let it grow for a couple days, creating a microbial ‘portrait’ unique to each participant.
+            They then extracted and sequenced the DNA collected from the microbes of each belly button.</p>
+            <p class="text-warning">They looked specifically at the 16S rRNA gene, a gene that’s extremely variable across different strains of microbes. It provides a molecular “fingerprint” that they used to distinguish one species from another. 
+              With the help of special software, they then turned the microbial sequence data into meaningful results: lists of species (and their relative abundances) for each belly button.</p>
+          <p>Now you can look at the results yourself!</p>
+          <p>All above information sourced from <a href="http://robdunnlab.com/projects/belly-button-biodiversity/project-history/">The Belly Button Biodiversity Project History</a> website</p>
+          <p>More information and datasets can be found <a href="http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/">here</a> </p>
+        </div>
+    </div>
+    <div class="row justify-content-center" style="margin-bottom: 15px";>      
+      <div class="col-md-4 text-center" >
         <div class="well">
-          <h5>Test Subject ID No.:</h5>
+          <h5 class="text-secondary" >Test Subject ID No.:</h5>
           <!-- <select id="selDataset"></select> -->
           <select id="selDataset" onchange="optionChanged(this.value)"></select>
         </div>
       </div>
-      <br>
-      <div class="row " style="padding: 15px;">
-        <div class="card border-danger col-md-6" >
+    </div>
+    <div class="row justify-content-center">
+      <div class="row" style="margin-bottom: 15px";>
+        <div class="card border-danger col-md-3">
           <h3 class="card-header">Demographic Info</h3>
           <div class="card-body">
             <div id="sample-metadata" class="panel-body"></div>
+          </div>
+        </div>
+        <div class="card border-success col" style="margin-right: 5px; margin-left: 5px" >
+          <div class="card-body" >
+            <div id="bar" class="panel-body"></div>
+          </div>
+        </div>
+        <div class="card border-warning col-md-5">
+          <div class="card-body">
+            <div id="gauge" class="panel-body"></div>
           </div>
         </div>
         <!-- <div class="panel panel-primary">
@@ -46,23 +81,20 @@
           <div id="sample-metadata" class="panel-body"></div>
         </div> -->
       </div>
-      <div class="col-md-5">
-        <div id="bar"></div>
-      </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
-      </div>
+      
+
     </div>
     <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
+      <div class="card border-info col-md-12">
+        <div class="card-body">
+          <div id="bubble" class="panel-body"></div>
+        </div>
       </div>
     </div>
   </div>
 
 
-  <script src="plot.js"></script>
-
+  <script src="/static/js/charts.js"></script>
 </body>
 
 </html>
